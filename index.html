@@ -9,10 +9,20 @@
 <body>
   <script>
     const sleep = (timer) => new Promise((resolve) => setTimeout(resolve, timer))
+    const syncWait = (timer) => {
+      let t = timer
+      console.log('[syncWait] before: ', t)
+      while(t > 0) {
+        t = t - 0.000001
+      }
+      console.log('[syncWait] after: ', t)
+    }
   </script>
   <script type="module">
     console. log ('[a] inline call before sleep')
-    await sleep(1000)
+
+    syncWait(1000)
+    // await sleep(1000)
     console. log('[a] inline call after sleep');
     window._script_type_module_inline_test = true
   </script>
