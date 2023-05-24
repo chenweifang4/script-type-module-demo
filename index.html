@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Script type module demo</title>
+</head>
+<body>
+  <script>
+    const sleep = (timer) => new Promise((resolve) => setTimeout(resolve, timer))
+  </script>
+  <script type="module">
+    console. log ('[a] inline call before sleep')
+    await sleep(1000)
+    console. log('[a] inline call after sleep');
+    window._script_type_module_inline_test = true
+  </script>
+  
+  <script type="module">
+    console.log('[b] window._script_type_module_inline_test module inline test is ', window._script_type_module_inline_test)
+  </script>
+</body>
+</html>
